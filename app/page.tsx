@@ -1,65 +1,68 @@
+"use client";
+
+import Grainient from "@/components/Grainient";
+import Link from "next/link";
 import Image from "next/image";
+
+import logo from "../public/am-logo.svg";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div className="min-h-screen flex flex-col items-center pb-2 justify-between z-0">
+      <header className="flex w-full p-8 pb-2 justify-between items-center">
+        <Image src={logo} alt="AM PTFL LOGO" height={48} />
+        <nav className="flex gap-4 text-2xl">
+          <Link href="/portfolio">
+            <span className="hover:text-gs-200 hover:underline decoration-fluorescent-adolescent">
+              !portfolio
+            </span>
+          </Link>
+          <Link href="/sobre">
+            <span className="hover:text-gs-200 hover:underline decoration-fluorescent-adolescent">
+              !sobre mim
+            </span>
+          </Link>
+        </nav>
+      </header>
+      <div className="flex w-full ps-8 text-gs-300 text-xl">
+        UI/UX & Product Designer
+      </div>
+      <section className="flex-1 flex flex-col items-center justify-center gap-2">
+        <p className="text-[calc(7vw+8px)] font-bold">web & design</p>
+        <p className="text-[calc(7vw+8px)] font-bold">@ são paulo ↔ brasil</p>
+        <p className="text-[calc(5vw+8px)] font-bold">open to work</p>
+        <p className="text-[calc(2vw+8px)] font-light">ฅ^• ﻌ •^ฅ</p>
+      </section>
+      <p className="text-2xl font-light text-gs-300 mt-auto">
+        web portfólio ✶ 2026
+      </p>
+      <div className="fixed inset-0 -z-10 opacity-20">
+        <Grainient
+          color1="#3975CF"
+          color2="#303A4A"
+          color3="#0028AD"
+          timeSpeed={2}
+          colorBalance={0.5}
+          warpStrength={20}
+          warpFrequency={1}
+          warpSpeed={3}
+          warpAmplitude={50}
+          blendAngle={10}
+          blendSoftness={4}
+          rotationAmount={400}
+          noiseScale={2}
+          grainAmount={0.31}
+          grainScale={2}
+          grainAnimated={false}
+          contrast={1.5}
+          gamma={1}
+          saturation={1}
+          centerX={0}
+          centerY={0}
+          zoom={0.1}
+          
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </div>
     </div>
   );
 }
