@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import BlurImage from "@/components/blurImage";
 
 type Project = {
   id: number;
@@ -21,12 +22,8 @@ export default function ProjectCard({ project }: Props) {
   return (
     <Link href={`/portfolio/${project.slug}`}>
       <div className="flex flex-col gap-2">
-        <div className="w-full flex justify-between">
-          <span>{String(project.id).padStart(2, "0")}</span>
-          <p className="font-medium">{project.title}</p>
-        </div>
         <div className="relative aspect-square w-full overflow-hidden">
-          <Image
+          <BlurImage
             src={project.cover}
             alt={project.title}
             fill
@@ -36,6 +33,10 @@ export default function ProjectCard({ project }: Props) {
           />
         </div>
 
+        <div className="w-full flex justify-between">
+          <span>{String(project.id).padStart(2, "0")}</span>
+          <p className="font-medium">{project.title}</p>
+        </div>
         <div className="flex justify-between text-sm text-gs-200">
           <p className="text-xs ">{project.category.join(" - ")}</p>
           <span className="text-xs">{project.year}</span>

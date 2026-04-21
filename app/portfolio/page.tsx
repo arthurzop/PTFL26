@@ -4,17 +4,31 @@ import Grainient from "@/components/Grainient";
 import Header from "@/components/header";
 import projects from "@/data/projects.json";
 import ProjectCard from "@/components/projectCard";
+import { useEffect, useState } from "react";
+import ScrollTop from "@/components/scrollTop";
 
 export default function Portfolio() {
+  const [showTop, setShowTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowTop(window.scrollY > 120); 
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <div className="min-h-screen">
       <Header />
 
-      <section className="grid grid-cols-2 md:grid-cols-4 gap-6 p-8">
+      <section className="grid grid-cols-1 p-4 relative z-0 gap-6 md:grid-cols-4 md:p-8">
         {projects.map((project) => (
           <ProjectCard key={project.slug} project={project} />
         ))}
       </section>
+
+      {showTop && <ScrollTop></ScrollTop>}
 
       <div className="fixed inset-0 -z-10 opacity-20">
         <Grainient

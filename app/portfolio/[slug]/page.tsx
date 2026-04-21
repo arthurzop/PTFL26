@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/header";
 import Grainient from "@/components/Grainient";
+import BlurImage from "@/components/blurImage";
 
 type Props = {
   params: {
@@ -25,17 +26,19 @@ export default async function ProjectPage({ params }: Props) {
   const nextProject = projects[nextIndex];
 
   return (
-    <div className="w-full h-dvh flex flex-col gap-4 overflow-hidden">
+    <div className="w-full h-dvh flex flex-col gap-4 md:overflow-hidden">
       <Header />
-      <section className="flex overflow-hidden">
-        {/* ESQUERDA FIXA */}
-        <div className="w-2/5 p-8 flex flex-col justify-between sticky top-0">
+      <section className="flex flex-col md:flex-row md:overflow-hidden">
+        {/* esquerda */}
+        <div className="w-full md:w-2/5 p-4 md:p-8 flex flex-col justify-between md:sticky top-0">
           <div className="flex flex-col h-full justify-between">
             <div className="flex w-full justify-between items-center">
-              <h1 className="text-4xl font-semibold">
-                {project.id}. {project.title}
+              <h1 className="text-4xl font-semibold ">
+                0{project.id}. {project.title}
               </h1>
-              <p className="text-gs-400">{project.year}</p>
+              <p className="text-gs-400 text-right md:text-left">
+                {project.year}
+              </p>
             </div>
 
             <p className="text-gs-200 text-2xl pt-8 text-justify font-light h-full">
@@ -49,7 +52,7 @@ export default async function ProjectPage({ params }: Props) {
 
               <Link
                 href={`/portfolio/${nextProject.slug}`}
-                className="hover:underline"
+                className="hover:underline text-right md:text-left"
               >
                 Próximo → {nextProject.title}
               </Link>
@@ -57,15 +60,21 @@ export default async function ProjectPage({ params }: Props) {
           </div>
         </div>
 
-        {/* DIREITA SCROLL */}
-        <div className="w-3/5 h-dvh overflow-y-auto p-8 flex flex-col gap-6">
+        {/* direita */}
+        <div className="w-full md:w-3/5 h-dvh md:overflow-y-auto p-4 md:p-8 flex flex-col gap-6">
           {project.images.map((img, i) => (
             <div key={i} className="relative w-full aspect-square">
-              <Image src={img} alt="" fill className="object-cover" />
+              <BlurImage
+                src={img}
+                alt=""
+                fill
+                className="object-cover rounded"
+              />
             </div>
           ))}
         </div>
       </section>
+
       <div className="fixed inset-0 -z-10 opacity-20">
         <Grainient
           {...{

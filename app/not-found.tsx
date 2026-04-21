@@ -5,7 +5,7 @@ import Grainient from "@/components/Grainient";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen w-full flex flex-col overflow-hidden">
+    <div className="min-h-screen w-full flex flex-col overflow-hidden text-center">
       <Header />
       <section className="flex flex-col h-200 w-full items-center justify-center">
         <p className="text-[calc(10vw+8px)] font-bold">[404]</p>

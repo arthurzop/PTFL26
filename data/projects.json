@@ -1,6 +1,6 @@
 [
   {
-    "id": 0,
+    "id": 1,
     "slug": "suporte-de-domingo",
     "client": "Suporte de Domingo",
     "title": "Suporte de Domingo",
@@ -18,7 +18,7 @@
     ]
   },
   {
-    "id": 1,
+    "id": 2,
     "slug": "code-trouble",
     "client": "Code Trouble",
     "title": "Code Trouble",
@@ -33,7 +33,7 @@
     ]
   },
   {
-    "id": 2,
+    "id": 3,
     "slug": "ascending",
     "client": "Ascending Consultoria e Treinamentos",
     "title": "Ascending",
@@ -50,7 +50,7 @@
     ]
   },
   {
-    "id": 3,
+    "id": 4,
     "slug": "prof-correa",
     "client": "Professor Corrêa",
     "title": "Portfólio Professor Corrêa",
@@ -67,7 +67,7 @@
     ]
   },
   {
-    "id": 4,
+    "id": 5,
     "slug": "sante",
     "client": "Clínica Sante",
     "title": "Clínica Sante",
@@ -82,7 +82,7 @@
     ]
   },
   {
-    "id": 5,
+    "id": 6,
     "slug": "joys-gourmet",
     "client": "Joy’s Gourmet",
     "title": "Joy’s Gourmet",
@@ -98,7 +98,7 @@
     ]
   },
   {
-    "id": 6,
+    "id": 7,
     "slug": "teacher-marcelli",
     "client": "Teacher Marcelli",
     "title": "Teacher Marcelli",
@@ -114,12 +114,12 @@
     ]
   },
   {
-    "id": 7,
+    "id": 8,
     "slug": "luiz-brito",
     "client": "Luiz Brito",
     "title": "Luiz Brito",
     "category": ["Branding", "Portfólio", "Landing Page"],
-    "description": "Mini rebranding e desenvolvimento de portfólio para profissional de Cloud, DevOps e infraestrutura. O projeto focou em clareza técnica, organização de conteúdo e posicionamento profissional, com uma interface objetiva e alinhada ao contexto de tecnologia.",
+    "description": "Mini branding e desenvolvimento de portfólio para profissional de Cloud, DevOps e infraestrutura. O projeto focou em clareza técnica, organização de conteúdo e posicionamento profissional, com uma interface objetiva e alinhada ao contexto de tecnologia.",
     "year": "2025",
     "cover": "/images/luiz-brito/IMG-01.png",
     "images": [
@@ -129,7 +129,7 @@
     ]
   },
   {
-    "id": 8,
+    "id": 9,
     "slug": "linkcore",
     "client": "Linkcore",
     "title": "Linkcore",

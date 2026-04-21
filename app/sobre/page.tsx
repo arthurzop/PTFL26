@@ -1,14 +1,36 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Grainient from "@/components/Grainient";
 import Header from "@/components/header";
-import Image from "next/image";
 import Link from "next/link";
 import * as L from "lucide-react";
-
+import ScrollTop from "@/components/scrollTop";
+import BlurImage from "@/components/blurImage";
 import me from "@/public/me.png";
 
 export default function About() {
+  const [showTop, setShowTop] = useState(false);
+  const [snackbar, setSnackbar] = useState(false);
+
+  useEffect(() => {
+    if (!snackbar) return;
+
+    const timer = setTimeout(() => {
+      setSnackbar(false);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, [snackbar]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowTop(window.scrollY > 120); // ajusta o threshold
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   async function copy(text: string) {
     try {
       await navigator.clipboard.writeText(text);
@@ -16,20 +38,22 @@ export default function About() {
   }
 
   return (
-    <div className="max-h-screen overflow-hidden">
+    <div className="min-h-screen flex flex-col items-center pb-2 justify-between z-0 md:overflow-hidden">
       <Header></Header>
-      <section className="w-full p-10 flex items-center justify-center">
-        <div className="flex flex-row items-center gap-8">
-          <Image
+      <section className="flex-1 flex flex-col items-center justify-center gap-4 md:gap-2">
+        <div className="sm:w-full p-4 flex flex-col md:flex-row items-center gap-8">
+          <BlurImage
             src={me}
             alt="myself"
             height={600}
             className="rounded-md"
             placeholder="blur"
-          ></Image>
-          <div className="w-150 flex flex-col justify-between h-150">
-            <p className="text-6xl font-semibold">Sobre Mim</p>
-            <p className="text-pretty">
+          ></BlurImage>
+          <div className="w-full md:w-150 flex flex-col  md:justify-between md:h-150">
+            <p className="text-4xl pb-4 md:text-6xl font-semibold text-center md:text-left">
+              Sobre Mim
+            </p>
+            <p className="text-justify md:text-pretty pb-6">
               Atualmente cursando Design Gráfico, com foco eo web design e na
               criação de experiências digitais bem estruturadas. Trabalho com
               UI/UX, product design e brand design, pensando não só na estética,
@@ -60,7 +84,7 @@ export default function About() {
                   Linkedin
                   <L.ArrowUpRight
                     height={16}
-                    className="hidden group-hover:block"
+                    className="hidden md:group-hover:block"
                   />
                 </Link>
                 <Link
@@ -72,7 +96,7 @@ export default function About() {
                   Behance
                   <L.ArrowUpRight
                     height={16}
-                    className="hidden group-hover:block"
+                    className="hidden md:group-hover:block"
                   />
                 </Link>
                 <Link
@@ -84,7 +108,7 @@ export default function About() {
                   Github
                   <L.ArrowUpRight
                     height={16}
-                    className="hidden group-hover:block"
+                    className="hidden md:group-hover:block"
                   />
                 </Link>
                 <a
@@ -96,25 +120,34 @@ export default function About() {
                   CV
                   <L.ArrowUpRight
                     height={16}
-                    className="hidden group-hover:block"
+                    className="hidden md:group-hover:block"
                   />
                 </a>
               </div>
               <div
-                className="w-full bg-off-white text-eerie-black p-2 px-4 flex justify-between items-center cursor-pointer rounded hover:bg-fluorescent-adolescent hover:text-off-white"
+                className="relative w-full bg-off-white text-eerie-black p-2 px-4 flex justify-between items-center cursor-pointer rounded hover:bg-fluorescent-adolescent hover:text-off-white"
                 onClick={() => {
-                  copy("@medeirosartur48@gmail.com");
+                  copy("medeirosartur48@gmail.com");
+                  setSnackbar(true);
                 }}
               >
                 <p className="w-full text-center font-semibold">
                   Entre em contato: medeirosartur48@gmail.com
                 </p>
-                <L.Copy height={16} width={16} className=""></L.Copy>
+
+                <L.Copy height={16} width={16} />
+
+                {snackbar && (
+                  <div className="absolute -bottom-8 left-1/2 md:-right-9 -translate-x-1/2 text-xs px-2 py-1 rounded bg-gs-500 text-white whitespace-nowrap">
+                    Copiado!
+                  </div>
+                )}
               </div>
             </div>
           </div>
         </div>
       </section>
+      {showTop && <ScrollTop></ScrollTop>}
       <div className="fixed inset-0 -z-10 opacity-20">
         <Grainient
           color1="#001457"
