@@ -1,19 +1,22 @@
 "use client";
-
-import Grainient from "@/components/Grainient";
+import Link from "next/link";
 import Header from "@/components/header";
-import projects from "@/data/projects.json";
-import ProjectCard from "@/components/projectCard";
+import Grainient from "@/components/Grainient";
 
-export default function Portfolio() {
+export default function NotFound() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen w-full flex flex-col overflow-hidden">
       <Header />
+      <section className="flex flex-col h-200 w-full items-center justify-center">
+        <p className="text-[calc(10vw+8px)] font-bold">[404]</p>
+        <p className="text-gs-200 text-2xl">Página não encontrada ://</p>
 
-      <section className="grid grid-cols-2 md:grid-cols-4 gap-6 p-8">
-        {projects.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
-        ))}
+        <Link
+          href="/"
+          className="text-fluorescent-adolescent hover:underline pt-2"
+        >
+          Voltar pra home
+        </Link>
       </section>
 
       <div className="fixed inset-0 -z-10 opacity-20">

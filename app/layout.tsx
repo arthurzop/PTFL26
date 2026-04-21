@@ -3,7 +3,8 @@ import { Bricolage_Grotesque, Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -22,10 +23,19 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en" 
-      className={cn("h-full", "antialiased", bricolage.className, "font-sans", inter.variable)}
+      lang="en"
+      className={cn(
+        "h-full",
+        "antialiased",
+        bricolage.className,
+        "font-sans",
+        inter.variable,
+      )}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}{" "}
+        
+      </body>
     </html>
   );
 }
