@@ -41,7 +41,7 @@ export default function About() {
     <div className="min-h-screen flex flex-col items-center pb-2 justify-between z-0 md:overflow-hidden">
       <Header></Header>
       <section className="flex-1 flex flex-col items-center justify-center gap-4 md:gap-2">
-        <div className="sm:w-full p-4 flex flex-col md:flex-row items-center gap-8">
+        <div className="sm:w-full p-8 flex flex-col md:flex-row items-center gap-8 rounded-xl md:border-1 border-gs-100 md:bg-gs-500/10 backdrop-blur-3xl">
           <BlurImage
             src={me}
             alt="myself"
@@ -49,7 +49,7 @@ export default function About() {
             className="rounded-md"
             placeholder="blur"
           ></BlurImage>
-          <div className="w-full md:w-150 flex flex-col  md:justify-between md:h-150">
+          <div className="w-full md:w-150 flex flex-col md:justify-between">
             <p className="text-4xl pb-4 md:text-6xl font-semibold text-center md:text-left">
               Sobre Mim
             </p>
