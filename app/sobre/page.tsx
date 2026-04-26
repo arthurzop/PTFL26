@@ -4,10 +4,12 @@ import { useEffect, useState } from "react";
 import Grainient from "@/components/Grainient";
 import Header from "@/components/header";
 import Link from "next/link";
+import Image from "next/image";
 import * as L from "lucide-react";
 import ScrollTop from "@/components/scrollTop";
 import BlurImage from "@/components/blurImage";
 import me from "@/public/me.png";
+import wpp from "@/public/wpp-icon.svg";
 
 export default function About() {
   const [showTop, setShowTop] = useState(false);
@@ -124,24 +126,39 @@ export default function About() {
                   />
                 </a>
               </div>
-              <div
-                className="relative w-full bg-off-white text-eerie-black p-2 px-4 flex justify-between items-center cursor-pointer rounded hover:bg-fluorescent-adolescent hover:text-off-white"
-                onClick={() => {
-                  copy("medeirosartur48@gmail.com");
-                  setSnackbar(true);
-                }}
-              >
-                <p className="w-full text-center font-semibold">
-                  Entre em contato: medeirosartur48@gmail.com
-                </p>
+              <div className="w-full flex flex-col md:flex-row justify-between align-middle gap-2">
+                <div
+                  className="relative min-w-fit md:w-5/6 bg-off-white text-eerie-black p-2 px-4 flex justify-between items-center cursor-pointer rounded hover:bg-fluorescent-adolescent hover:text-off-white"
+                  onClick={() => {
+                    copy("artur.medeiros@suportededomingo.com.br");
+                    setSnackbar(true);
+                  }}
+                >
+                  <p className="w-full text-center font-medium">
+                    artur.medeiros@suportededomingo.com.br
+                  </p>
 
-                <L.Copy height={16} width={16} />
+                  <L.Copy height={16} width={16} />
 
-                {snackbar && (
-                  <div className="absolute -bottom-8 left-1/2 md:-right-9 -translate-x-1/2 text-xs px-2 py-1 rounded bg-gs-500 text-white whitespace-nowrap">
-                    Copiado!
-                  </div>
-                )}
+                  {snackbar && (
+                    <div className="w-fit absolute -bottom-8 left-1/2 md:-right-9 -translate-x-1/2 text-xs px-2 py-1 rounded bg-gs-500 text-white whitespace-nowrap">
+                      Copiado!
+                    </div>
+                  )}
+                </div>
+                <Link
+                  href="https://wa.me/5511958930776"
+                  target="_blank"
+                  rel="norefer noopener"
+                  className="w-full p-2 md:w-1/6 text-center bg-green-500 hover:bg-green-700 rounded cursor-pointer flex justify-center items-center "
+                >
+                  <Image
+                    src={wpp}
+                    alt="icone whatsapp"
+                    height={24}
+                    className="text-off-white"
+                  ></Image>
+                </Link>
               </div>
             </div>
           </div>
